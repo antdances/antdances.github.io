@@ -6,9 +6,19 @@
 
 %heading {
   color: var(--heading-color);
-  font-weight: 400;
+  font-weight: 600;
   font-family: $font-family-heading;
-  scroll-margin-top: 3.5rem;
+}
+
+%section {
+  main & {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+
+    &:focus {
+      outline: none; /* avoid outline in Safari */
+    }
+  }
 }
 
 %anchor {
@@ -82,7 +92,7 @@
 }
 
 %rounded {
-  border-radius: $radius-lg;
+  border-radius: $base-radius;
 }
 
 %img-caption {
@@ -113,7 +123,7 @@
 }
 
 %text-highlight {
-  color: var(--text-muted-highlight-color);
+  color: var(--text-muted-hightlight-color);
   font-weight: 600;
 }
 
@@ -132,12 +142,6 @@
     width: -webkit-fit-content;
     width: fit-content;
     transition: background-color 1.75s ease-in-out;
-  }
-}
-
-%btn-color {
-  button i {
-    color: #999999;
   }
 }
 
@@ -183,18 +187,14 @@
   transform: translateX(-50%);
 }
 
-@mixin prompt($type, $fa-content, $fa-style: 'solid', $rotate: 0) {
+@mixin prompt($type, $iconfont-content, $icon-weight: 400) {
   &.prompt-#{$type} {
     background-color: var(--prompt-#{$type}-bg);
 
     &::before {
-      content: $fa-content;
+      content: $iconfont-content;
       color: var(--prompt-#{$type}-icon-color);
-      font: var(--fa-font-#{$fa-style});
-
-      @if $rotate != 0 {
-        transform: rotate(#{$rotate}deg);
-      }
+      font-weight: $icon-weight;
     }
   }
 }

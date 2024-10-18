@@ -17,6 +17,7 @@ CONFIG="_config.yml"
 
 CSS_DIST="_sass/dist"
 JS_DIST="assets/js/dist"
+PWA_DIST="_app"
 
 FILES=(
   "$GEM_SPEC"
@@ -117,7 +118,7 @@ build_gem() {
 
   npm run build
   # add CSS/JS distribution files to gem package
-  git add "$CSS_DIST" "$JS_DIST" -f
+  git add "$CSS_DIST" "$JS_DIST" "$PWA_DIST" -f
 
   echo -e "\n> gem build $GEM_SPEC\n"
   gem build "$GEM_SPEC"

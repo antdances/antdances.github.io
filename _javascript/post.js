@@ -1,18 +1,27 @@
-import { basic, initTopbar, initSidebar } from './modules/layouts';
-
+import { basic, initSidebar, initTopbar } from './modules/layouts';
 import {
   loadImg,
   imgPopup,
   initLocaleDatetime,
   initClipboard,
-  initToc
+  toc,
+  highlightLines,
+  runCpp,
+  runJavascript,
+  runPython,
+  runRust
 } from './modules/plugins';
 
 loadImg();
-initToc();
+toc();
 imgPopup();
 initSidebar();
 initLocaleDatetime();
 initClipboard();
 initTopbar();
 basic();
+highlightLines();
+runCpp();
+runJavascript();
+runPython();
+runRust();
