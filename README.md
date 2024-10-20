@@ -1,73 +1,84 @@
-# Static Assets for Chirpy Jekyll Theme
+<!-- markdownlint-disable-next-line -->
+<div align="center">
 
-## Introduction
+  <!-- markdownlint-disable-next-line -->
+  # Chirpy Jekyll Theme
 
-Static assets (libraries/plugins/web-fonts) required by the [_Chirpy_][chirpy] based website to run. It provides the opportunity to choose self-host assets in production or development mode.
+  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
 
-## Usage
+  [![CI](https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github)][ci]&nbsp;
+  [![Codacy Badge](https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy)][codacy]&nbsp;
+  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod)][license]&nbsp;
+  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange)][gem]&nbsp;
+  [![Open in Dev Containers](https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers)][open-container]
 
-- If you want to use these assets only in local development:
+  [**Live Demo** →][demo]
 
-  Go to the root of your site and clone the assets as follows:
+  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
 
-  ```console
-  $ git submodule init
-  $ git submodule update
-  ```
+</div>
 
-  And then set your site configuration options:
+## Features
 
-  ```yml
-  # _config.yml
-  assets:
-    self_host:
-      enabled: true
-      env: development
-  ```
+- Dark Theme
+- Localized UI language
+- Pinned Posts on Home Page
+- Hierarchical Categories
+- Trending Tags
+- Table of Contents
+- Last Modified Date
+- Syntax Highlighting
+- Mathematical Expressions
+- Mermaid Diagrams & Flowcharts
+- Dark Mode Images
+- Embed Media
+- Comment Systems
+- Built-in Search
+- Atom Feeds
+- PWA
+- Web Analytics
+- SEO & Performance Optimization
 
-- If you expect the assets to be self-hosted when your website is published:
+## Documentation
 
-  Keep the `_config.yml` options as follows:
+To learn how to use, develop, and upgrade the project, please refer to the [Wiki][wiki].
 
-  ```yml
-  # _config.yml
-  assets:
-    self_host:
-      enabled: true
-  ```
+## Contributing
 
-  And then update the GitHub Actions workflow in `.github/workflows/pages-deploy.yml`:
+Contributions (_pull requests_, _issues_, and _discussions_) are what make the open-source community such an amazing place
+to learn, inspire, and create. Any contributions you make are greatly appreciated.
+For details, see the "[Contributing Guidelines][contribute-guide]".
 
-  ```diff
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-  +     submodules: true
-  ```
+## Credits
 
-## Versions
+### Contributors
 
-| Dependency                                               |   Version |
-| :------------------------------------------------------- | --------: |
-| [Clipboard][clipboard]                                   |  `2.0.11` |
-| [Day.js][dayjs]                                          | `1.11.13` |
-| [Font Awesome Free][fontawesome]                         |   `6.6.0` |
-| [GLightbox][glightbox]                                   |   `3.3.0` |
-| [Loading-attribute-polyfill][loading-attribute-polyfill] |   `2.1.1` |
-| [Mermaid][mermaid]                                       |  `11.0.2` |
-| [Simple-Jekyll-Search][simple-jekyll-search]             |  `1.10.0` |
-| [Tocbot][tocbot]                                         |  `4.29.0` |
+Thanks to [all the contributors][contributors] involved in the development of the project!
 
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy
+[![all-contributors](https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16)][contributors]
+<sub> — Made with [contrib.rocks](https://contrib.rocks)</sub>
 
-<!-- deps -->
+### Third-Party Assets
 
-[clipboard]: https://www.jsdelivr.com/package/npm/clipboard
-[dayjs]: https://www.jsdelivr.com/package/npm/dayjs
-[fontawesome]: https://fontawesome.com/download
-[loading-attribute-polyfill]: https://www.jsdelivr.com/package/npm/loading-attribute-polyfill
-[glightbox]: https://www.jsdelivr.com/package/npm/glightbox
-[mermaid]: https://www.jsdelivr.com/package/npm/mermaid
-[simple-jekyll-search]: https://www.jsdelivr.com/package/npm/simple-jekyll-search
-[tocbot]: https://www.jsdelivr.com/package/npm/tocbot
+This project is built on the [Jekyll][jekyllrb] ecosystem and some [great libraries][lib], and is developed using [VS Code][vscode] as well as tools provided by [JetBrains][jetbrains] under a non-commercial open-source software license.
+
+The avatar and favicon for the project's website are from [ClipartMAX][clipartmax].
+
+## License
+
+This project is published under [MIT License][license].
+
+[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
+[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
+[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
+[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
+[jekyllrb]: https://jekyllrb.com/
+[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
+[demo]: https://cotes2020.github.io/chirpy-demo/
+[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
+[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
+[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
+[lib]: https://github.com/cotes2020/chirpy-static-assets
+[vscode]: https://code.visualstudio.com/
+[jetbrains]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
