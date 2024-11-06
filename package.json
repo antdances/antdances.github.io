@@ -1,178 +1,109 @@
 {
-  "name": "jekyll-theme-chirpy",
-  "version": "7.0.1",
-  "description": "A minimal, responsive, and feature-rich Jekyll theme for technical writing.",
+  "name": "mkdocs-material",
+  "version": "9.5.44",
+  "description": "Documentation that simply works",
+  "keywords": [
+    "mkdocs",
+    "documentation",
+    "theme"
+  ],
+  "homepage": "https://squidfunk.github.io/mkdocs-material/",
+  "bugs": {
+    "url": "https://github.com/squidfunk/mkdocs-material/issues",
+    "email": "martin.donath@squidfunk.com"
+  },
+  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Martin Donath",
+    "email": "martin.donath@squidfunk.com"
+  },
+  "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cotes2020/jekyll-theme-chirpy.git"
+    "url": "https://github.com/squidfunk/mkdocs-material.git"
   },
-  "author": "Cotes Chung",
-  "license": "MIT",
-  "since": 2019,
-  "bugs": {
-    "url": "https://github.com/cotes2020/jekyll-theme-chirpy/issues"
-  },
-  "homepage": "https://github.com/cotes2020/jekyll-theme-chirpy/",
   "scripts": {
-    "build": "concurrently npm:build:*",
-    "build:css": "purgecss -c purgecss.config.js",
-    "build:js": "rollup -c --bundleConfigAsCjs --environment BUILD:production",
-    "watch:js": "rollup -c --bundleConfigAsCjs -w",
-    "lint:scss": "stylelint _sass/**/*.scss",
-    "lint:fix:scss": "npm run lint:scss -- --fix",
-    "test": "npm run lint:scss",
-    "prepare": "husky"
+    "build": "rimraf material && ts-node -T tools/build --optimize",
+    "build:all": "rimraf material && ts-node -T tools/build --all --optimize",
+    "build:dirty": "ts-node -T tools/build --dirty",
+    "clean": "rimraf material",
+    "check": "run-p check:*",
+    "check:build": "tsc --noEmit",
+    "check:style": "run-p check:style:*",
+    "check:style:scss": "stylelint \"src/**/*.scss\"",
+    "check:style:ts": "eslint --cache \"src/**/*.ts\"",
+    "fix": "run-p fix:*",
+    "fix:style": "run-p fix:style:*",
+    "fix:style:ts": "eslint --cache \"src/**/*.ts\" --fix",
+    "start": "ts-node -T tools/build --verbose --all --dirty --watch",
+    "upgrade": "run-s upgrade:*",
+    "upgrade:bump": "ncu --upgrade --filterVersion \"/^\\^/\"",
+    "upgrade:install": "npm install"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.3.3"
+    "clipboard": "^2.0.11",
+    "escape-html": "^1.0.3",
+    "focus-visible": "^5.2.1",
+    "fuzzaldrin-plus": "^0.6.0",
+    "lunr": "^2.3.9",
+    "lunr-languages": "^1.14.0",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.6",
-    "@babel/plugin-transform-class-properties": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-yaml": "^4.1.2",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "concurrently": "^8.2.2",
-    "conventional-changelog-conventionalcommits": "^8.0.0",
-    "husky": "^9.0.11",
-    "purgecss": "^6.0.0",
-    "rollup": "^4.18.0",
-    "semantic-release": "^24.0.0",
-    "stylelint": "^16.6.1",
-    "stylelint-config-standard-scss": "^13.1.0"
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "@mdi/svg": "^7.4.47",
+    "@primer/octicons": "^19.12.0",
+    "@stylistic/eslint-plugin-ts": "^2.10.1",
+    "@stylistic/stylelint-config": "^2.0.0",
+    "@stylistic/stylelint-plugin": "^3.1.1",
+    "@types/css-modules": "^1.0.5",
+    "@types/escape-html": "^1.0.4",
+    "@types/fuzzaldrin-plus": "^0.6.5",
+    "@types/html-minifier-terser": "^7.0.2",
+    "@types/lunr": "^2.3.7",
+    "@types/node": "^22.8.7",
+    "@types/resize-observer-browser": "^0.1.11",
+    "@types/sass": "^1.45.0",
+    "@typescript-eslint/eslint-plugin": "^8.12.2",
+    "@typescript-eslint/parser": "^8.12.2",
+    "autoprefixer": "^10.4.20",
+    "chokidar": "^4.0.1",
+    "cssnano": "5.1.0",
+    "esbuild": "^0.24.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsdoc": "^50.4.3",
+    "eslint-plugin-no-null": "^1.0.2",
+    "github-types": "^1.0.0",
+    "gitlab": "^14.2.2",
+    "google-fonts-complete": "jonathantneal/google-fonts-complete",
+    "html-minifier-terser": "^7.2.0",
+    "material-design-color": "^2.3.2",
+    "material-shadows": "^3.0.1",
+    "npm-check-updates": "^17.1.10",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.47",
+    "postcss-dir-pseudo-class": "^9.0.1",
+    "postcss-inline-svg": "^6.0.0",
+    "postcss-logical": "5.0.4",
+    "postcss-pseudo-is": "^0.3.0",
+    "preact": "^10.24.3",
+    "rimraf": "^6.0.1",
+    "sass": "^1.80.6",
+    "simple-icons": "^13.16.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-recess-order": "^5.1.1",
+    "stylelint-config-recommended": "^14.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.8.1",
+    "svgo": "^3.3.2",
+    "tiny-glob": "^0.2.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
   },
-  "prettier": {
-    "trailingComma": "none"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 0.2%",
-    "not dead"
-  ],
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ],
-    "rules": {
-      "body-max-line-length": [
-        0,
-        "always"
-      ]
-    }
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard-scss",
-    "rules": {
-      "no-descending-specificity": null,
-      "shorthand-property-no-redundant-values": null,
-      "at-rule-no-vendor-prefix": null,
-      "property-no-vendor-prefix": null,
-      "selector-no-vendor-prefix": null,
-      "value-no-vendor-prefix": null,
-      "color-function-notation": "legacy",
-      "alpha-value-notation": "number",
-      "selector-not-notation": "simple",
-      "color-hex-length": "long",
-      "declaration-block-single-line-max-declarations": 3,
-      "scss/operator-no-newline-after": null,
-      "rule-empty-line-before": [
-        "always",
-        {
-          "ignore": [
-            "after-comment",
-            "first-nested"
-          ]
-        }
-      ],
-      "value-keyword-case": [
-        "lower",
-        {
-          "ignoreProperties": [
-            "/^\\$/"
-          ]
-        }
-      ],
-      "media-feature-range-notation": "prefix"
-    }
-  },
-  "release": {
-    "branches": [
-      "production"
-    ],
-    "plugins": [
-      [
-        "@semantic-release/commit-analyzer",
-        {
-          "preset": "conventionalcommits"
-        }
-      ],
-      [
-        "@semantic-release/release-notes-generator",
-        {
-          "preset": "conventionalcommits",
-          "presetConfig": {
-            "types": [
-              {
-                "type": "feat",
-                "section": "Features"
-              },
-              {
-                "type": "fix",
-                "section": "Bug Fixes"
-              },
-              {
-                "type": "perf",
-                "section": "Improvements"
-              },
-              {
-                "type": "refactor",
-                "section": "Changes",
-                "hidden": true
-              }
-            ]
-          }
-        }
-      ],
-      [
-        "@semantic-release/changelog",
-        {
-          "changelogFile": "docs/CHANGELOG.md",
-          "changelogTitle": "# Changelog"
-        }
-      ],
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ],
-      [
-        "@semantic-release/exec",
-        {
-          "prepareCmd": "bash tools/release.sh --prepare",
-          "publishCmd": "bash tools/release.sh"
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "docs",
-            "package.json",
-            "*.gemspec"
-          ],
-          "message": "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
-        }
-      ],
-      "@semantic-release/github"
-    ]
+  "engines": {
+    "node": ">= 18"
   }
 }

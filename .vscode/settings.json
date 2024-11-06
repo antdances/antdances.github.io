@@ -1,35 +1,21 @@
 {
-  // Prettier
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.trailingComma": "none",
-  // Shopify Liquid
-  "files.associations": {
-    "*.html": "jekyll"
+  "git.ignoreLimitWarning": true,
+  "search.exclude": {
+    "**/material": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  "search.followSymlinks": false,
+  "stylelint.validate": ["css", "scss"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "yaml.schemas": {
+    "docs/schema.json": "mkdocs.yml"
   },
-  // Formatter
-  "[html][liquid]": {
-    "editor.defaultFormatter": "Shopify.theme-check-vscode"
-  },
-  "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt"
-  },
-  // Disable vscode built-in stylelint
-  "css.validate": false,
-  "scss.validate": false,
-  "less.validate": false,
-  // Stylint extension settings
-  "stylelint.snippet": ["css", "less", "postcss", "scss"],
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "scss"
-  ],
-  "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  "yaml.customTags": [
+    "!ENV scalar",
+    "!ENV sequence",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.to_svg",
+    "tag:yaml.org,2002:python/name:material.extensions.emoji.twemoji",
+    "tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+  ]
 }
